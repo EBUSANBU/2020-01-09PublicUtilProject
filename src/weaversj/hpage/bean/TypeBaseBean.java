@@ -8,7 +8,25 @@ public class TypeBaseBean {
 	public String pageSize;
 	public String pageCount;
 	public String ids;
+	public String tableName;
+	public String url;
 	
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public String getPageSize() {
 		return pageSize;
 	}
@@ -32,6 +50,8 @@ public class TypeBaseBean {
 		this.pageCount = "";
 		this.pageSize = "";
 		this.ids = "";
+		this.tableName = "";
+		this.url = "";
 	}
 
 	public String getIds() {

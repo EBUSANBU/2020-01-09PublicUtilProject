@@ -30,6 +30,33 @@ if("select".equals(flags)){
 	typeBase.setFlag(flags);
 	typeBase.setIds(ids);
 	getJson = typeAction.getDeleteData(typeBase);
+}else if("add".equals(flags)){
+	String typeName = Util.null2String(request.getParameter("typeName"));
+	String types = Util.null2String(request.getParameter("types"));
+	String tableName = Util.null2String(request.getParameter("tableName"));
+	String url = Util.null2String(request.getParameter("url"));
+	typeBase.setFlag(flags);
+	typeBase.setTypeName(typeName);
+	typeBase.setType(types);
+	typeBase.setTableName(tableName);
+	typeBase.setUrl(url);
+	getJson = typeAction.addData(typeBase);
+}else if("edit".equals(flags)){
+	String typeName = Util.null2String(request.getParameter("typeName"));
+	String types = Util.null2String(request.getParameter("types"));
+	String tableName = Util.null2String(request.getParameter("tableName"));
+	String url = Util.null2String(request.getParameter("url"));
+	String dataid = Util.null2String(request.getParameter("dataid"));
+
+	typeBase.setFlag(flags);
+	typeBase.setIds(dataid);
+	typeBase.setTypeName(typeName);
+	typeBase.setType(types);
+	typeBase.setTableName(tableName);
+	typeBase.setUrl(url);
+	getJson = typeAction.editData(typeBase);
+}else{
+	getJson = "{code:\"1\",msg:\"失败\"}";
 }
 out.print(getJson.toString().trim());
 %>

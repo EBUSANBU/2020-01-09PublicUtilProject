@@ -8,6 +8,7 @@
 <html>
 
 <head>
+
 <meta charset="utf-8">
 <title></title>
 <link href="/weaversj/public_ui/layui/css/layui.css" type="text/css"
@@ -158,6 +159,23 @@ layui.use('table', function(){
     var data = obj.data;
     //标注选中样式
     obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+	layer.open({
+		type: 2,
+		title:"查看/编辑",
+		id:"openDiaolog",
+		offset:"t",
+		area: ['700px', '450px'],
+		fixed: false, //不固定
+		maxmin: true,
+		content: "/weaversj/public_util/h_page/jsp/view.jsp?flags=view&dataid="+data.t_id,
+		end: function(){
+			table.reload('reloadTable', {
+				page: {
+					curr: 1 //重新从第 1 页开始
+				}
+			}, 'data');
+		}
+	});
   });
   
    var $ = layui.$, active ={ 
@@ -205,7 +223,14 @@ layui.use('table', function(){
 				area: ['700px', '450px'],
 				fixed: false, //不固定
 				maxmin: true,
-				content: "/weaversj/public_util/h_page/jsp/view.jsp"
+				content: "/weaversj/public_util/h_page/jsp/view.jsp?flags=add",
+				end: function(){
+					table.reload('reloadTable', {
+						page: {
+							curr: 1 //重新从第 1 页开始
+						}
+					}, 'data');
+				}
 			});
             break;
         case 'del':
