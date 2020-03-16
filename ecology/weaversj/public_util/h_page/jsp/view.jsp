@@ -229,7 +229,6 @@ layui.use(['form'], function(){
   });
  
   form.on('submit(save)', function(data){
-	console.log(data);
 	jQuery.ajax({ 
 		url : "/weaversj/public_util/h_page/jsp/getJson.jsp",  
 		type:"post",
