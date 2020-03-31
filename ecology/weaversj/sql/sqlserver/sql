@@ -1,0 +1,23 @@
+create table roomtype 
+(id  int IDENTITY(1,1),
+name varchar(99) not null,
+remark varchar(999)  null,
+shownum int default 0);
+
+create table roommess 
+(id  int IDENTITY(1,1),
+name varchar(99) not null,
+remark varchar(999)  null,
+bednum int default 0,
+maxbednum int default 0,
+subid int default 0,
+type int default 0,
+status varchar(2),
+userid int null,
+shownum int default 0);
+
+create table roombaseutil
+ 
+(id  int IDENTITY(1,1),
+role varchar(99)  null
+);
